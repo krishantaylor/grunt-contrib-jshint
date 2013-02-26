@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 
   // Internal lib.
   var jshint = require('./lib/jshint').init(grunt);
+  var jsmin = require('jsmin').jsmin;
 
   grunt.registerMultiTask('jshint', 'Validate files with JSHint.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
 
     // Read JSHint options from a specified jshintrc file.
     if (options.jshintrc) {
-      options = grunt.file.readJSON(options.jshintrc);
+      options = JSON.parse(jsmin(grunt.file.read(options.jshintrc)));
     }
     // If globals weren't specified, initialize them as an empty object.
     if (!options.globals) {
