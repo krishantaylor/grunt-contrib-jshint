@@ -28,7 +28,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jshint": "~1.0.0",
+    "jshint": "git://github.com/krishantaylor/jshint.git",
     "jsmin": "~1.0.1"
   },
   "devDependencies": {
